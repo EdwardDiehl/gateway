@@ -1,0 +1,52 @@
+checkNewVersion = false
+debug = true
+defaultEntryPoints = ["https", "http"]
+logLevel = "ERROR"
+
+[api]
+
+[acme]
+email = "support+acme@rubyjobs.ru"
+entryPoint = "https"
+OnHostRule = true
+storage = "/etc/traefik/acme/acme.json"
+
+	[acme.httpChallenge]
+	entryPoint = "http"
+
+[docker]
+domain = "v300.rubyjobs.ru"
+endpoint = "unix:///var/run/docker.sock"
+exposedbydefault = false
+swarmmode = false
+watch = true
+
+[entryPoints]
+
+  [entryPoints.http]
+  address = ":80"
+
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+    permanent = true
+
+  [entryPoints.https]
+  address = ":443"
+  compress = true
+
+    [entryPoints.https.tls]
+
+    [entryPoints.https.redirect]
+    regex = "^https://v300.rubyjobs.ru/(.*)"
+    replacement = "https://www.v300.rubyjobs.ru/$1"
+    permanent = true
+
+  [entryPoints.traefik]
+  address = ":8080"
+
+  # Protect access to the dashboard. Default values:
+  # 	- username: gateway
+  # 	- password: gateway
+  [entryPoints.traefik.auth.basic]
+  users = ["gateway:$2y$05$p3J28mROTpgxetS.w9C2DOCozhz2e2Rl9fNgcvxzRBJUwRqyMOSSK"]
+  usersFile = "/etc/traefik/.htpasswd"
