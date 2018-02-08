@@ -1,7 +1,7 @@
 checkNewVersion = false
-debug = true
+debug = false
 defaultEntryPoints = ["https", "http"]
-logLevel = "DEBUG"
+logLevel = "INFO"
 
 [api]
 
@@ -49,4 +49,3 @@ watch = true
   # 	- password: gateway
   [entryPoints.traefik.auth.basic]
   users = ["gateway:$2y$05$p3J28mROTpgxetS.w9C2DOCozhz2e2Rl9fNgcvxzRBJUwRqyMOSSK"]
-  usersFile = "/etc/traefik/.htpasswd"
