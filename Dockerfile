@@ -15,7 +15,7 @@ COPY .htpasswd /etc/traefik/
 # Read more at https://docs.traefik.io/configuration/acme/#storage
 RUN mkdir -p /etc/traefik/acme/ && \
     touch /etc/traefik/acme/acme.json && \
-	  chown 600 /etc/traefik/acme/acme.json
+	  chmod 600 /etc/traefik/acme/acme.json
 
 EXPOSE 80
 
