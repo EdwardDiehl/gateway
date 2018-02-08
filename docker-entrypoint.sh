@@ -11,4 +11,4 @@ then
   chmod 600 /etc/traefik/acme/acme.json
 fi
 
-traefik
+traefik "$@"
