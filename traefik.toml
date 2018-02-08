@@ -1,7 +1,7 @@
 checkNewVersion = false
-debug = true
+debug = false
 defaultEntryPoints = ["https", "http"]
-logLevel = "ERROR"
+logLevel = "INFO"
 
 [api]
 
