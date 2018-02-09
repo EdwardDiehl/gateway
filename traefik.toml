@@ -37,8 +37,8 @@ watch = true
     [entryPoints.https.tls]
 
     [entryPoints.https.redirect]
-    regex = "^https://v300.rubyjobs.ru/(.*)"
-    replacement = "https://www.v300.rubyjobs.ru/$1"
+    regex = "^https://rubyjobs.ru/(.*)"
+    replacement = "https://www.rubyjobs.ru/$1"
     permanent = true
 
   [entryPoints.traefik]
